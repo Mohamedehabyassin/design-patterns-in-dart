@@ -1,10 +1,10 @@
-const adapteeMessage = 'Adaptee#method was called';
+const adaptedMessage = 'Adapted#method was called';
 
-class Adaptee {
+class Adapted {
   String method() {
-    print('Adaptee#method is being called');
+    print('Adapted#method is being called');
 
-    return adapteeMessage;
+    return adaptedMessage;
   }
 }
 
@@ -14,10 +14,10 @@ abstract class Target {
 
 class Adapter implements Target {
   String call() {
-    var adaptee = Adaptee();
+    var adapted = Adapted();
     print('Adapter#call is being called');
 
-    return adaptee.method();
+    return adapted.method();
   }
 }
 
@@ -25,5 +25,5 @@ void main() {
   var adapter = Adapter();
   var result = adapter.call();
 
-  assert(result == adapteeMessage);
+  assert(result == adaptedMessage);
 }

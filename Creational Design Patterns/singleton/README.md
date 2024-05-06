@@ -10,6 +10,7 @@ Singletons are often preferred to global variables because:
 * They permit lazy allocation and initialization, whereas global variables in many languages will always consume resources.
 
 [Wikipedia: Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
+[Refactoring Guru:Singleton Pattern] (https://refactoring.guru/design-patterns/singleton)
 
 ### Example
 

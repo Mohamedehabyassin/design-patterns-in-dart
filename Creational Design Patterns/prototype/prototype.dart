@@ -1,3 +1,5 @@
+// ignore_for_file: non_nullable_equals_parameter
+
 abstract class Shape {
   late int x;
   late int y;
