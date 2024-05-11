@@ -1,4 +1,5 @@
-## Command Pattern
+# Command Pattern
+
 In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
 
 Four terms always associated with the command pattern are command, receiver, invoker and client.
@@ -16,13 +17,15 @@ Using command objects makes it easier to construct general components that need 
 [Wikipedia: Command Pattern](https://en.wikipedia.org/wiki/Command_pattern)
 [Refactoring Guru: Command Pattern](https://refactoring.guru/design-patterns/command)
 
-## When to use 
+## When to use
+
 - Encapsulating a request in an object
 - Decouple sender from processor or receiver
 - Undo operation
 - When we have too much functionality
 
 ## Pitfalls
+
 - Usually used in combination with other patterns
 - High number of classes and object to achieve the required goal
 - Each command is an object and this goes against object oriented design

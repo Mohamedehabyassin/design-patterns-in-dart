@@ -26,15 +26,15 @@ void main() {
   var mixer = List<Attendee>.from([curly, larry, moe]);
   var publicAnnouncementSystem = Mediator(mixer);
 
-  publicAnnouncementSystem.update("Do NOT eat the shrip tacos!");
+  publicAnnouncementSystem.update("Do NOT eat the tacos!");
 
   for (var person in mixer) {
     print("${person.name} heard \"${person.state}\".");
   }
 
   /*
-    Curly heard "Do NOT eat the shrip tacos!".
-    Larry heard "Do NOT eat the shrip tacos!".
-    I prefer not to disclose my name heard "Do NOT eat the shrip tacos!".
+    Curly heard "Do NOT eat the tacos!".
+    Larry heard "Do NOT eat the tacos!".
+    I prefer not to disclose my name heard "Do NOT eat the tacos!".
   */
 }

@@ -1,7 +1,7 @@
 // NOTE: See https://api.dartlang.org/stable/2.4.0/dart-core/Iterator-class.html
 // for details on Dart's Iterator class.
 
-class RainbowIterator implements Iterator {
+class ColorsIterator implements Iterator {
   var _colors = [
     "Red",
     "Orange",
@@ -17,7 +17,7 @@ class RainbowIterator implements Iterator {
 }
 
 void main() {
-  var rainbowColors = RainbowIterator();
+  var rainbowColors = ColorsIterator();
   while (rainbowColors.moveNext()) {
     print(rainbowColors.current);
   }

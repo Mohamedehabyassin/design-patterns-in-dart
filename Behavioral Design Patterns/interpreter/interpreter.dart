@@ -3,6 +3,14 @@ abstract class Expression {
   void interpret(int value);
 }
 
+class Number {
+  late int value;
+  Number(int value) {
+    print("Starting with $value...");
+    this.value = value;
+  }
+}
+
 class Add implements Expression {
   Number number;
   Add(this.number);
@@ -21,21 +29,13 @@ class Subtract implements Expression {
   }
 }
 
-class Number {
-  late int value;
-  Number(int value) {
-    print("Starting with $value...");
-    this.value = value;
-  }
-}
-
 void main() {
   var number = Number(0);
   var adder = Add(number);
-  var subtracter = Subtract(number);
+  var subtract = Subtract(number);
 
   adder.interpret(100);
-  subtracter.interpret(60);
+  subtract.interpret(60);
   adder.interpret(2);
 
   assert(number.value == 42);
