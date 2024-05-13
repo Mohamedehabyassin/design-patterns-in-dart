@@ -9,6 +9,23 @@ With the mediator pattern, communication between objects is encapsulated within 
 [Wikipedia: Mediator Pattern](https://en.wikipedia.org/wiki/Mediator_pattern)
 [Refactoring Guru: Mediator Pattern](https://refactoring.guru/design-patterns/mediator)
 
-## Example
+## Code example
 
 [View on GitHub](https://github.com/scottt2/design-patterns-in-dart/tree/master/mediator)
+
+## Programming scenario
+
+- Chatroom
+- Airport tower
+
+## When to use
+
+- Interaction between objects with one another without having to refer to each other explicitly
+- Loose coupling between objects
+- Maybe used as a router
+- Communication Management
+
+## Pitfalls
+
+- Creating one mediator for everything
+- Used with other patterns

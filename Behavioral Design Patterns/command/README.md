@@ -24,6 +24,11 @@ Using command objects makes it easier to construct general components that need 
 - Undo operation
 - When we have too much functionality
 
+## Advantage
+
+- turns a request or a behavior into a stand-alone object that contains everything about that request
+- encapsulate all the relevant information needed to perform and action or trigger an event
+
 ## Pitfalls
 
 - Usually used in combination with other patterns

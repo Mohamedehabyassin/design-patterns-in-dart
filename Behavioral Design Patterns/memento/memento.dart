@@ -43,19 +43,19 @@ class CareTaker {
 }
 
 void main() {
-  var me = Originator("Returned from store");
-  me.state = "Placing car keys down";
+  var originator = Originator("Returned from store");
+  originator.state = "Placing car keys down";
 
-  var locationOfKeys = me.saveToMemento();
-  var memory = CareTaker();
-  memory.memento = locationOfKeys;
+  var locationOfKeys = originator.saveToMemento();
+  var careTaker = CareTaker();
+  careTaker.memento = locationOfKeys;
 
-  me.state = "Putting away groceries";
-  me.state = "Noticed missing pickles";
-  me.state = "Looking for car keys...";
+  originator.state = "Putting away groceries";
+  originator.state = "Noticed missing pickles";
+  originator.state = "Looking for car keys...";
 
-  me.restoreFromMemento(memory.memento);
-  me.state = "Going back to store for pickles";
+  originator.restoreFromMemento(careTaker.memento);
+  originator.state = "Going back to store for pickles";
 
   /*
     [Originator] Set state to Returned from store

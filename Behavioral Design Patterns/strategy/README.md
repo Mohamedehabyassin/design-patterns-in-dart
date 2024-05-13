@@ -16,3 +16,18 @@ Typically the strategy pattern stores a reference to some code in a data structu
 ## Example
 
 [View on GitHub](https://github.com/scottt2/design-patterns-in-dart/tree/master/strategy)
+
+## When to use
+
+- When you want to enable algorithm to be selected at runtime
+- Eliminate conditional statements
+
+## Programming scenarios
+
+- Game level
+- Sorting
+
+## Pitfalls
+
+- Client has to know about strategies
+- Increased number of classes

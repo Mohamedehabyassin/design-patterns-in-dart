@@ -8,38 +8,44 @@ enum LogLevel {
   FunctionalError,
 }
 
-abstract class Logger {
-  Set<LogLevel> levels;
-  Logger? _next;
+abstract class IHandler {
+  // Method for handling request
+  void handle(LogLevel logLevel, String request);
+}
 
-  Logger(this.levels);
+// Optional class where the boilerplate code common to all handlers sits
+abstract class BaseHandler implements IHandler {
+  Set<LogLevel> levels;
+  BaseHandler? _next;
+
+  BaseHandler(this.levels);
 
   bool get universal => levels.containsAll(LogLevel.values);
-  void set next(Logger nextLogger) => _next = nextLogger;
+  void set next(BaseHandler nextLogger) => _next = nextLogger;
 
   void addLevel(LogLevel level) => levels.add(level);
 
-  void log(LogLevel level, String msg) {
+  void handle(LogLevel level, String msg) {
     if (levels.contains(level) || universal) {
       write_message(msg);
     }
-    _next?.log(level, msg);
+    _next?.handle(level, msg);
   }
 
   void write_message(String msg);
 }
 
-class ConsoleLogger extends Logger {
+class ConsoleLogger extends BaseHandler {
   ConsoleLogger(Set<LogLevel> levels) : super(levels);
   void write_message(String msg) => print("[Console]: $msg");
 }
 
-class EmailLogger extends Logger {
+class EmailLogger extends BaseHandler {
   EmailLogger(Set<LogLevel> levels) : super(levels);
   void write_message(String msg) => print("[Email]: $msg");
 }
 
-class FileLogger extends Logger {
+class FileLogger extends BaseHandler {
   FileLogger(Set<LogLevel> levels) : super(levels);
   void write_message(String msg) => print("[File]: $msg");
 }
@@ -53,14 +59,14 @@ void main() {
   logger.next = eLog;
   eLog.next = fLog;
 
-  logger.log(LogLevel.Debug, "Some amazingly helpful debug message");
-  logger.log(LogLevel.Info, "Pretty important information");
+  logger.handle(LogLevel.Debug, "Some amazingly helpful debug message");
+  logger.handle(LogLevel.Info, "Pretty important information");
 
-  logger.log(LogLevel.Warning, "This is a warning!");
-  logger.log(LogLevel.Error, "AHHHHHHHHH!");
+  logger.handle(LogLevel.Warning, "This is a warning!");
+  logger.handle(LogLevel.Error, "AHHHHHHHHH!");
 
-  logger.log(LogLevel.FunctionalError, "This is not a show stopper");
-  logger.log(LogLevel.FunctionalMessage, "This is basically just info");
+  logger.handle(LogLevel.FunctionalError, "This is not a show stopper");
+  logger.handle(LogLevel.FunctionalMessage, "This is basically just info");
 
   /*
     [Console]: Some amazingly helpful debug message

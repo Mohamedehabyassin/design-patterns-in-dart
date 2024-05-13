@@ -16,6 +16,7 @@ abstract class Command {
 
 class Invoker {
   List<String> history = [];
+
   void execute(Command cmd) {
     cmd.execute();
     history.add("[${DateTime.now()}] Executed $cmd");
@@ -70,15 +71,15 @@ class LightSwitch {
 }
 
 void main() {
-  var myFavoriteLamp = Light();
-  var iotLightSwitch = LightSwitch(myFavoriteLamp);
+  var receiver = Light();
+  var invokerHelper = LightSwitch(receiver);
 
-  iotLightSwitch.perform("on");
-  iotLightSwitch.perform("off");
-  iotLightSwitch.perform("blink");
-  iotLightSwitch.perform("on");
+  invokerHelper.perform("on");
+  invokerHelper.perform("off");
+  invokerHelper.perform("blink");
+  invokerHelper.perform("on");
 
-  print("\r\n*** Fancy IoT Switch Logs ***\r\n${iotLightSwitch.history}");
+  print("\r\n*** Fancy IoT Switch Logs ***\r\n${invokerHelper.history}");
 
   /*
     Light on!
